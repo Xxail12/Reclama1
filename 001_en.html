@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <link rel="stylesheet" href="002_en.css">
+
+    <script scr="https://formspree.io/js/formbutton-v1.0.4.min.js"></script>
+
+
+</head>
+<body>
+    
+
+    <div class="circle"></div>
+    <header>
+        <a href="#"><img src="pngwing.com.png" class="logo" /></a>
+        <div class="toggle" onclick="toggleMenu()"></div>
+        <ul class="navigation">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Menu</a></li>
+            <li><a href="#">What's New</a></li>
+            <li><a href="#">Contact</a></li>
+            <li><a href="#section2">Any Queries</a></li>
+        </ul>
+    </header>
+
+    <div class="content">
+        <button onclick="topFunction()" id="myBtn" title="Click to go to the Top">Top</button>
+        <div class="textBox">
+            <h2>It's not just Coffee<br />It's <span id="output">Imba</span></h2>
+            <p>Make Every Sip More Rewarding <br />
+            Join Imba, Earn Rewards To Get Gold Level Benefict Like free 
+            Drinks and Coupons! With Every Purchase Of a Product, There Is A Discount!
+            </p>
+            <a href="#" id="learnmore">Learn More</a>
+        </div>
+
+        <div class="imgBox">
+            <img src="лесные ягоды.png"
+                alt="" class="starbucks">
+        </div>
+    </div>
+
+    <ul class="thumbnails">
+        <li>
+            <img id="changeGreen" src="лесные ягоды.png" onclick="imageSlider('лесн ягод.png');
+                        changeCircleColor('#8B008B')
+                        changeSpanColor('#8B008B')">
+        </li>
+        <li>
+            <img id="changePink1" src="вишня.png" onclick="imageSlider('вишня1.png');
+                        changeCircleColor('#A52A2A')
+                        changeSpanColor('#A52A2A')">
+        </li>
+        <li>
+            <img id="changePink2" src="яблоко.png" onclick="imageSlider('яблоко2.png');
+                        changeCircleColor('#32CD32')
+                        changeSpanColor('#32CD32')">
+        </li>
+    </ul>
+
+    <ul class="social" id="social">
+        <li><a href="https://www.facebook.com/Starbucks/" target="_blank"><img
+                    src="https://starbucks-landing-page.netlify.app/public/images/facebook.png"></a></li>
+        <li><a href="https://twitter.com/Starbucks" target="_blank"><img
+                    src="https://starbucks-landing-page.netlify.app/public/images/twitter.png"></a></li>
+        <li><a href="https://www.instagarm.com/starbucks_sa" target="_blank"><img
+                    src="https://starbucks-landing-page.netlify.app/public/images/instagram.png"></a></li>
+    </ul>
+</section>
+<div class="section2" id="section2">
+    <h2 class="section2heading" id="heading2">Any Queries...</h2>
+    <br>
+    <div class="container">
+        <input type="text" name="myhoneypot" class="myclass">
+        <form id="my-form" action="https://formspree.io/f/xdoveeaj" method="POST">
+            <label for="fname">First Name</label>
+            <input type="text" id="fname" name="firstname" placeholder="Your name.." required>
+
+            <label for="lname">Last Name</label>
+            <input type="text" id="lname" name="lastname" placeholder="Your last name.." required>
+
+            <label for="emailadress">E-mail</label>
+            <input type="email" id="email" name="email" pattern="[^ @]*@[^ @]*" required
+                placeholder="Your email address..">
+            <label for="subject">Subject</label>
+            <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"
+                required></textarea>
+
+            <input type="submit" value="Submit" id="my-form-button">
+        </form>
+    </div>
+</div>
+<div class="footer">
+    <p>Starbucks® 2023 - Not to be copied</p>
+</div>
+
+
+<script>
+    const imageSlider = (currentImg) => {
+    document.querySelector('.starbucks').src = currentImg;
+}
+
+//Handle circle color
+const changeCircleColor = (color) => {
+    document.querySelector('.circle').style.background = color;
+}
+//Handle <span>, .social, .circle tag color
+document.getElementById("changeGreen").onclick = function(){
+	document.getElementById("output").style.color = '#8B008B';
+	document.getElementById("social").style.background = '#8B008B';
+	document.getElementById("learnmore").style.background = '#8B008B';
+	document.querySelector('.starbucks').src ="лесн ягод.png";
+    document.querySelector('.circle').style.background = '#8B008B';
+}
+
+document.getElementById("changePink1").onclick = function(){
+	document.getElementById("output").style.color = '#A52A2A';
+	document.getElementById("social").style.background = '#A52A2A';
+	document.getElementById("learnmore").style.background = '#A52A2A';
+	document.querySelector('.starbucks').src ="вишня.png";
+    document.querySelector('.circle').style.background = '#A52A2A';
+}
+document.getElementById("changePink2").onclick = function(){
+	document.getElementById("output").style.color = '#32CD32';
+	document.getElementById("social").style.background = '#32CD32';
+	document.getElementById("learnmore").style.background = '#32CD32';
+	document.querySelector('.starbucks').src ="яблоко.png";
+    document.querySelector('.circle').style.background = '#32CD32';
+}
+//Handle menu button
+const toggleMenu = () => {
+    const menuToggle = document.querySelector('.toggle');
+    const navigation = document.querySelector('.navigation');
+
+    menuToggle.classList.toggle('active');
+    navigation.classList.toggle('active');
+}
+// Get the button
+let mybutton = document.getElementById("myBtn");
+
+// When the user scrolls down 20px from the top of the document, show the button
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    mybutton.style.display = "block";
+  } else {
+    mybutton.style.display = "none";
+  }
+}
+
+// When the user clicks on the button, scroll to the top of the document
+function topFunction() {
+  document.body.scrollTop = 0;
+  document.documentElement.scrollTop = 0;
+}
+</script>
+
+</body>
+</html>
+<section>
